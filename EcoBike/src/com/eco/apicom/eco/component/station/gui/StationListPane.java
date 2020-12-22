@@ -1,4 +1,4 @@
-package station;
+package com.eco.apicom.eco.component.station.gui;
 
 import java.awt.Dimension;
 import java.awt.LayoutManager;
@@ -9,6 +9,7 @@ import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
+import com.eco.apicom.eco.component.station.controller.UserStationPageController;
 import com.eco.bean.Station;
 
 @SuppressWarnings("serial")
@@ -27,8 +28,8 @@ public class StationListPane extends JScrollPane {
 		this.getVerticalScrollBar().setUnitIncrement(20);
 		this.getHorizontalScrollBar().setUnitIncrement(20);
     }
-	public void setController(UserStationPageController userStationPageController) {
-		this.controller = userStationPageController;
+	public void setController(UserStationPageController controller) {
+		this.controller = controller;
 	}
 	public void updateData(List<Station> list) {
 		pane.removeAll();
@@ -37,7 +38,7 @@ public class StationListPane extends JScrollPane {
 		
 		for (Station t: list) {
 		    StationSinglePane singlePane = controller.createSinglePane();
-	        
+		    singlePane.setStation(t);
             singlePane.updateData(t);
             pane.add(singlePane);
             pane.add(Box.createRigidArea(new Dimension(0, 40)));

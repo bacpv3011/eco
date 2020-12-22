@@ -1,8 +1,10 @@
 eclipse.preferences.version=1
-encoding//src/address/AddressDialog.java=UTF-8
-encoding//src/address/AddressPane.java=UTF-8
-encoding//src/main/EcoUser.java=UTF-8
-encoding//src/main/EcoUserController.java=UTF-8
-encoding//src/station/StationPagePane.java=UTF-8
-encoding//src/station/StationSearchPane.java=UTF-8
-encoding//src/station/StationSinglePane.java=UTF-8
+encoding//src/com/eco/apicom/eco/component/station/gui/StationPagePane.java=UTF-8
+encoding//src/com/eco/apicom/eco/component/station/gui/StationSearchPane.java=UTF-8
+encoding//src/com/eco/apicom/eco/component/station/gui/StationSinglePane.java=UTF-8
+encoding//src/com/eco/app/user/EcoUser.java=UTF-8
+encoding//src/com/eco/app/user/EcoUserController.java=UTF-8
+encoding//src/com/eco/component/rentbike/controller/RentingController.java=UTF-8
+encoding//src/com/eco/component/rentbike/gui/RentPane.java=UTF-8
+encoding//src/com/eco/component/rentbike/gui/RentingDialog.java=UTF-8
+encoding//src/com/eco/component/rentbike/gui/RentingPane.java=UTF-8

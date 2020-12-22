@@ -5,6 +5,7 @@ import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
 
 import com.oms.service.StationService;
+import com.oms.service.VehicleService;
 
 public class OMSServer {
 	public static final int PORT = 8080;
@@ -21,7 +22,8 @@ public class OMSServer {
 
 		
 		jerseyServlet.setInitParameter("jersey.config.server.provider.classnames",
-				StationService.class.getCanonicalName()
+				StationService.class.getCanonicalName()+ ", " + 
+						VehicleService.class.getCanonicalName()
 		);
 
 		

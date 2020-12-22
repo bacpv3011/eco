@@ -10,22 +10,11 @@ public class Station {
 	private String title;
 
 	private String name;
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
+	
+	private int numberOfBikes;
+	private int numberOfEBikes;
+	private int numberOfTwinBikes;
+	private int numberOfEmptyDocks;
 
 	private String address;
 	
@@ -61,11 +50,61 @@ public class Station {
 	public void setTitle(String title) {
 		this.title = title;
 	}
+	public String getName() {
+		return name;
+	}
 
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
 	
+	
+	public int getNumberOfBikes() {
+		return numberOfBikes;
+	}
+
+	public void setNumberOfBikes(int numberOfBikes) {
+		this.numberOfBikes = numberOfBikes;
+	}
+
+	public int getNumberOfEBikes() {
+		return numberOfEBikes;
+	}
+
+	public void setNumberOfEBikes(int numberOfEBikes) {
+		this.numberOfEBikes = numberOfEBikes;
+	}
+
+	public int getNumberOfTwinBikes() {
+		return numberOfTwinBikes;
+	}
+
+	public void setNumberOfTwinBikes(int numberOfTwinBikes) {
+		this.numberOfTwinBikes = numberOfTwinBikes;
+	}
+
+	public int getNumberOfEmptyDocks() {
+		return numberOfEmptyDocks;
+	}
+
+	public void setNumberOfEmptyDocks(int numberOfEmptyDocks) {
+		this.numberOfEmptyDocks = numberOfEmptyDocks;
+	}
+
 	@Override
 	public String toString() {
-		return "id: " + this.id + ", title: " + this.title + ", name: " + this.name + ", address: " + this.address;
+		return "id: " + this.id + ", title: " + this.title + ", name: " + this.name + 
+				", address: " + this.address+ ", numberOfBikes: " + this.numberOfBikes+
+				", numberOfEBikes: " + this.numberOfEBikes+ ", numberOfTwinBikes: " +
+				this.numberOfTwinBikes+ ", numberOfEmptyDocks: " + this.numberOfEmptyDocks;
 	}
 	
 	
@@ -73,13 +112,6 @@ public class Station {
 		if (media == null)
 			return true;
 		
-		
-		if (media.id != null && !media.id.equals("") && !this.id.contains(media.id)) {
-			return false;
-		}
-		if (media.title != null && !media.title.equals("") && !this.title.contains(media.title)) {
-			return false;
-		}
 		if (media.name != null && !media.name.equals("") && !this.name.contains(media.name)) {
 			return false;
 		}

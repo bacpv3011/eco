@@ -1,4 +1,4 @@
-package main;
+package com.eco.app.user;
 
 import java.awt.Component;
 import java.awt.Dimension;
@@ -9,30 +9,31 @@ import javax.swing.*;
 
 @SuppressWarnings("serial")
 public class EcoUser extends JFrame {
-
-	public static final int WINDOW_WIDTH = 380;
+	private JPanel  current;
+	public static final int WINDOW_WIDTH = 300;
 	public static final int WINDOW_HEIGHT = 350;
-	
+	private EcoUserController controller;
 	public EcoUser(EcoUserController controller) {
+		this.controller = controller;
+		getHomePage();
+	}
+
+	public void getHomePage() {
 		JPanel panel = new JPanel();
 		JLabel jLabel1 = new JLabel();
-		JButton jButton1 = new JButton();
 		JButton jButton2 = new JButton();
 		JButton jButton3 = new JButton();
 		
-        jLabel1.setIcon(new ImageIcon(getClass().getResource("/image/images.png"))); // NOI18N
-
-        jButton1.setText("Xe đang thuê");
+        jLabel1.setIcon(new ImageIcon(getClass().getResource("/image/images.png")));
 	    jButton2.setText("Thuê xe");
         jButton3.setText("Tìm kiếm bãi xe");
-        
-        this.add(panel);
-        
+        current = panel;
+        this.add(current);
+        panel.setMinimumSize(new Dimension(400,400));
         panel.setLayout( new BoxLayout(panel,BoxLayout.Y_AXIS));
         
-        JPanel bottom = controller.getAddressPane();
+        JPanel bottom = controller.getRentingPane();
         
-        bottom.setAlignmentX(Component.CENTER_ALIGNMENT);
         panel.add(bottom);
         
         JPanel center = new JPanel();
@@ -49,23 +50,20 @@ public class EcoUser extends JFrame {
         up.add(jButton3);
         up.add(Box.createRigidArea(new Dimension(15, 0)));
         up.add(jButton2);
-        up.add(Box.createRigidArea(new Dimension(15, 0)));
-        up.add(jButton1);
 
         panel.add(up);
         
-      
         jButton3.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				JPanel panel2 = controller.getStationPage();
-				if(!controller.getAddress().equals("")) {
-					System.out.println("zô zô");
-					panel.removeAll();
-					panel.repaint();
-					panel.revalidate();
-					panel.add(panel2);
-				}
+				controller.getStationPage();
+				
+			}
+		});
+        jButton2.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				controller.getRentPage();
 			}
 		});
         
@@ -73,13 +71,21 @@ public class EcoUser extends JFrame {
 		setTitle("EcoBike");
 		setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
 		setVisible(true);
+		
+	}
+
+	protected void addPanel(JPanel pane) {
+		current.setVisible(false);
+		add(pane);
+		current = pane;
 	}
 
 	public static void main(String[] args) {
 		
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
-				new EcoUser(new EcoUserController());
+				EcoUserController controller = new EcoUserController();
+			    controller.setUser(new EcoUser(controller));
 			}
 		});
 	}

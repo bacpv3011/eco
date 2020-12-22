@@ -1,4 +1,4 @@
-package station;
+package com.eco.apicom.eco.component.station.gui;
 
 
 import java.awt.event.ActionEvent;
@@ -12,6 +12,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import com.eco.apicom.eco.component.station.controller.UserStationPageController;
+
 @SuppressWarnings("serial")
 public class StationSearchPane extends JPanel{
     
@@ -22,7 +24,8 @@ public class StationSearchPane extends JPanel{
     public StationSearchPane() {
     	BoxLayout layout = new BoxLayout(this,BoxLayout.Y_AXIS);
 		this.setLayout(layout);
-		
+		JButton homeButton = new JButton("Home");
+		add(homeButton);
 		JLabel nameLabel = new JLabel("Tên bãi xe");
 		nameField = new JTextField();
 		add(nameLabel);
@@ -39,6 +42,13 @@ public class StationSearchPane extends JPanel{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				controller.search(getQueryParams());
+			}
+		});
+		
+		homeButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				controller.getHomePage();
 			}
 		});
     }
@@ -60,7 +70,6 @@ public class StationSearchPane extends JPanel{
 	}
 	public void addressSearch(String address) {
 		Map<String,String> res = getQueryParams();
-		res.put("address", address.trim());
 		controller.search(res);
 	}
 }

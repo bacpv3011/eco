@@ -4,27 +4,43 @@
 		"id": "1",
 		"title": "s1",
 		"name": "D3",
-		"address": "HUST Đại Cồ Việt"
+		"address": "HUST Đại Cồ Việt",
+		"numberOfBikes": 2,
+		"numberOfEBikes": 8,
+		"numberOfTwinBikes": 16,
+		"numberOfEmptyDocks": 19
 	},
 	{
 		"type": "station",
 		"id": "2",
 		"title": "s2",
 		"name": "Nhà TC",
-		"address": "HUST Lê Thanh Nghị"
+		"address": "HUST Lê Thanh Nghị",
+		"numberOfBikes": 5,
+		"numberOfEBikes": 14,
+		"numberOfTwinBikes": 2,
+		"numberOfEmptyDocks": 9
 	},
 	{
 		"type": "station",
 		"id": "3",
 		"title": "s3",
 		"name": "Bể Bơi Bách Khoa",
-		"address": "Lê Thanh Nghị"
+		"address": "Lê Thanh Nghị",
+		"numberOfBikes": 13,
+		"numberOfEBikes": 4,
+		"numberOfTwinBikes": 6,
+		"numberOfEmptyDocks": 12
 	},
 	{
 		"type": "station",
 		"id": "4",
 		"title": "s4",
 		"name": "95C",
-		"address": "Hoàng Ngân, Thanh Xuân, Hà Nội"
+		"address": "Hoàng Ngân, Thanh Xuân, Hà Nội",
+		"numberOfBikes": 13,
+		"numberOfEBikes": 4,
+		"numberOfTwinBikes": 26,
+		"numberOfEmptyDocks": 0
 	}
 ]

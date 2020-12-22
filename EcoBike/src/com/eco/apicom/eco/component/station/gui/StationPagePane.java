@@ -1,13 +1,15 @@
-package station;
+package com.eco.apicom.eco.component.station.gui;
+
+import java.awt.Dimension;
 
 import javax.swing.JPanel;
 import javax.swing.SpringLayout;
 
 @SuppressWarnings("serial")
 public class StationPagePane extends JPanel{
-	@SuppressWarnings("unused")
-	private UserStationPageController controller;
+
     public StationPagePane(StationListPane listPane, StationSearchPane searchPane) {
+    	setMinimumSize(new Dimension(400,400));
     	SpringLayout layout = new SpringLayout();
 		this.setLayout(layout);
 		
@@ -26,7 +28,5 @@ public class StationPagePane extends JPanel{
 		layout.putConstraint(SpringLayout.EAST, listPane, -5, SpringLayout.EAST, this);
 		layout.putConstraint(SpringLayout.SOUTH, listPane, -5, SpringLayout.SOUTH, this);
     }
-	public void setController(UserStationPageController controller) {
-		this.controller = controller;
-	}
+
 }
