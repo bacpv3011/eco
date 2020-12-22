@@ -48,6 +48,12 @@ public class StationSinglePane extends JPanel{
 				
 				if(controller.checkVehicle()) {
 					controller.updateReturnVehicle();
+					JPanel frame = new JPanel();
+					add(frame);
+					 JOptionPane.showMessageDialog(frame,
+						    "Trả xe thành công",
+						    "Trả xe",
+						    JOptionPane.PLAIN_MESSAGE);
 				}else {
 					JPanel frame = new JPanel();
 					add(frame);

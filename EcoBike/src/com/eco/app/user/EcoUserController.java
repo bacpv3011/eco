@@ -60,14 +60,14 @@ public class EcoUserController {
 	}
 
 	public boolean checkVehicle() {
-		System.out.println(rentingController.getVehicle().getVehicle().getBarcode());
-		if(rentingController.getVehicle().getVehicle().getBarcode() == null)
+		if(rentingController.getRentingVehicle().getBarcode().equals(""))
 		    return false;
 		return true;
 	}
 
 	public void updateReturnVehicle() {
-		rentingController.getVehicle().setVehicle(null);	
+		rentingController.getRentingVehicle().setBarcode("");
+		rentingController.updateStatus(rentingController.getRentingVehicle());
 	}
 	
 }

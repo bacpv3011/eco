@@ -19,7 +19,10 @@ public class Vehicle {
 	public Vehicle() {
 		super();
 	}
-
+	public Vehicle(String barcode) {
+		super();
+		this.barcode =barcode ;
+	}
 	public Vehicle(String title, String barcode, float cost) {
 		super();
 

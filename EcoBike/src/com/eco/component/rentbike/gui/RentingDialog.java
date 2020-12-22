@@ -13,7 +13,6 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import com.eco.bean.RentingVehicle;
 import com.eco.bean.Vehicle;
 import com.eco.component.rentbike.controller.RentingController;
 

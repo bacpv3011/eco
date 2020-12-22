@@ -8,7 +8,6 @@ import java.util.Map;
 
 import javax.swing.*;
 
-import com.eco.bean.RentingVehicle;
 import com.eco.bean.Vehicle;
 import com.eco.component.rentbike.controller.RentingController;
 
@@ -25,7 +24,10 @@ public class RentPane extends JPanel{
 	private JLabel producerLabel = new JLabel();
 	private JButton rentButton = new JButton("Thuê Xe");
 	private JButton acceptButton = new JButton("Xác nhận");
+	
+	private RentingController controller;
     public RentPane(RentingController controller) {
+    	this.controller = controller;
     	JPanel pane1 = new JPanel();
     	panel = new JPanel();
     	this.setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
@@ -45,7 +47,6 @@ public class RentPane extends JPanel{
 				if(!barcodeField.getText().trim().equals("")) {
 					Map<String, String> params = new HashMap<String, String>();
 					params.put("barcode", barcodeField.getText());
-					controller.updateStatus(controller.searchVehicle(params));
 					updateData(controller.searchVehicle(params));
 				}
 			}
@@ -76,6 +77,7 @@ public class RentPane extends JPanel{
 			statusLabel.setText("Check lại mã xem nào");
 		}
 		else {
+			controller.updateStatus(vehicle);
 			panel.setVisible(true);
 			statusLabel.setText("");
 			nameLabel.setText("Name : "+vehicle.getName());
@@ -100,20 +102,21 @@ public class RentPane extends JPanel{
 					if(vehicle.getTypeBike().equals("bike")) {
 						 JOptionPane.showMessageDialog(frame,
 							    "normal-bike : hết 400k",
-							    "Nộp ti�?n c�?c nào",
+							    "Nộp tiền cọc nào",
 							    JOptionPane.PLAIN_MESSAGE);
 					}
 					else if(vehicle.getTypeBike().equals("ebike")) {
 						JOptionPane.showMessageDialog(frame,
 								"E-bike : hết 700k",
-							    "Nộp ti�?n c�?c nào",
+							    "Nộp tiền cọc nào",
 							    JOptionPane.PLAIN_MESSAGE);
 					}else {
 						JOptionPane.showMessageDialog(frame,
 								"normal-bike : hết 550k",
-							    "Nộp ti�?n c�?c nào",
+							    "Nộp tiền cọc nào",
 							    JOptionPane.PLAIN_MESSAGE);
 					}
+					controller.updateStatus(vehicle);
 					remove(acceptButton);
 					panel.remove(rentButton);
 					repaint();

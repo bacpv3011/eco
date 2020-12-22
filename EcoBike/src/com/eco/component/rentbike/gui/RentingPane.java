@@ -10,7 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import com.eco.bean.RentingVehicle;
+import com.eco.bean.Vehicle;
 import com.eco.component.rentbike.controller.RentingController;
 
 @SuppressWarnings("serial")
@@ -39,8 +39,10 @@ public class RentingPane extends JPanel{
     	
     	
     }
-	public void updateStatus(RentingVehicle vehicle) {
-		statusLabel.setText("Xe đang thuê : "+ vehicle.getVehicle().getName());
+	public void updateStatus(Vehicle vehicle) {
+		statusLabel.setText("Xe đang thuê : ");
+		if(vehicle != null)
+		statusLabel.setText("Xe đang thuê : "+ vehicle.getName());
 	}
 
 }
