@@ -22,7 +22,7 @@ public class RentPane extends JPanel{
 	private JLabel lienceLabel = new JLabel();
 	private JLabel manuafLabel = new JLabel();
 	private JLabel producerLabel = new JLabel();
-	private JButton rentButton = new JButton("Thuê Xe");
+
 	private JButton acceptButton = new JButton("Xác nhận");
 	
 	private RentingController controller;
@@ -72,13 +72,13 @@ public class RentPane extends JPanel{
 	protected void updateData(Vehicle vehicle) {
 		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 		this.add(panel);
+		panel.removeAll();
+		panel.revalidate();
+		panel.repaint();
 		if(vehicle == null) {
-			panel.setVisible(false);
 			statusLabel.setText("Check lại mã xem nào");
 		}
 		else {
-			controller.updateStatus(vehicle);
-			panel.setVisible(true);
 			statusLabel.setText("");
 			nameLabel.setText("Name : "+vehicle.getName());
 	    	panel.add(nameLabel);
@@ -94,6 +94,7 @@ public class RentPane extends JPanel{
 	    	panel.add(manuafLabel);
 	    	producerLabel.setText("Producer : "+vehicle.getProducer());
 	    	panel.add(producerLabel);
+	    	JButton rentButton = new JButton("Thuê Xe");
 	    	panel.add(rentButton);
 	    	rentButton.addActionListener(new ActionListener() {
 				@Override

@@ -40,8 +40,9 @@ public class EcoUserController {
 	}
 
 	public void getRentPage() {
-		if(rentingController.getRentPane() != null)
-		addPanel(rentingController.getRentPane());
+		JPanel panel = rentingController.getRentPane();
+		if(panel != null)
+		addPanel(panel);
 	}
 
 	public ArrayList<Vehicle> searchVehicle(Map<String, String> params) {
@@ -60,14 +61,13 @@ public class EcoUserController {
 	}
 
 	public boolean checkVehicle() {
-		if(rentingController.getRentingVehicle().getBarcode().equals(""))
+		if(rentingController.getRentingVehicle().getBarcode() == null)
 		    return false;
 		return true;
 	}
 
-	public void updateReturnVehicle() {
-		rentingController.getRentingVehicle().setBarcode("");
-		rentingController.updateStatus(rentingController.getRentingVehicle());
+	public void deleteRentingVehicle() {
+		rentingController.deleteRentingVehicle();
 	}
 	
 }

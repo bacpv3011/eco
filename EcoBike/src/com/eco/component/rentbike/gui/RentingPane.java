@@ -40,8 +40,8 @@ public class RentingPane extends JPanel{
     	
     }
 	public void updateStatus(Vehicle vehicle) {
-		statusLabel.setText("Xe đang thuê : ");
-		if(vehicle != null)
+		statusLabel.setText("");
+		if(vehicle.getBarcode() != null)
 		statusLabel.setText("Xe đang thuê : "+ vehicle.getName());
 	}
 

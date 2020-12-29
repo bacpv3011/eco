@@ -117,7 +117,7 @@ public class Vehicle {
 	public boolean match(Vehicle media) {
 		if (media == null)
 			return true;
-		if (media.barcode != null && !media.barcode.equals("") && !this.barcode.contains(media.barcode)) {
+		if (media.barcode != null && !media.barcode.equals(this.barcode) ) {
 			return false;
 		}
 		if (media.title != null && !media.title.equals("") && !this.title.contains(media.title)) {

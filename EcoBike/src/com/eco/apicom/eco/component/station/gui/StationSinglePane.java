@@ -47,7 +47,7 @@ public class StationSinglePane extends JPanel{
 			public void actionPerformed(ActionEvent e) {
 				
 				if(controller.checkVehicle()) {
-					controller.updateReturnVehicle();
+					controller.deleteRentingVehicle();
 					JPanel frame = new JPanel();
 					add(frame);
 					 JOptionPane.showMessageDialog(frame,

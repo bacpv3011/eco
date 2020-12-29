@@ -17,24 +17,17 @@ import com.eco.component.rentbike.gui.RentingPane;
 public class RentingController {
 	private RentingDialog rentingDialog;
 	private RentingPane rentingPane;
-    private Vehicle rentingVehicle;
+    private Vehicle rentingVehicle = new Vehicle();
     private RentPane rentPane;
     private EcoUserController controller;
     public RentingController(EcoUserController controller) {
     	this.controller = controller;
-    	rentingVehicle = new Vehicle("");
-    	if(rentingPane == null)
-    	    rentingPane = new RentingPane(this);
-    	
-    	
-    	
-    	
+    	rentingPane = new RentingPane(this);
+    	rentingDialog = new RentingDialog(this);
+    	updateStatus(rentingVehicle);
     }
     
 	public void showRentingDialog() {
-		if(rentingDialog == null)
-        	rentingDialog = new RentingDialog();
-		rentingDialog.setController(this);
 		rentingDialog.setVisible(true);
 	}
 	public void closeRentingDialog() {
@@ -46,7 +39,7 @@ public class RentingController {
 	}
 
 	public JPanel getRentPane() {
-		if(!this.rentingVehicle.getBarcode().equals("")) 
+		if(rentingVehicle.getBarcode() != null) 
 			return getNotice();
 		return new RentPane(this);
 	}
@@ -74,20 +67,16 @@ public class RentingController {
 
 	public void updateStatus(Vehicle v) {
 		rentingVehicle = v;
-		if(v.getBarcode().equals("")) {
-			v = null;
-		}
-		rentingPane.updateStatus(v);
-    	if(rentingDialog == null)
-        	rentingDialog = new RentingDialog();
-    	rentingDialog.updateStatus(v);
+		rentingPane.updateStatus(rentingVehicle);
+    	rentingDialog.updateStatus(rentingVehicle);
 	}
 
 	public Vehicle getRentingVehicle() {
 		return rentingVehicle;
 	}
 
-	public void setRentingVehicle(Vehicle rentingVehicle) {
-		this.rentingVehicle = rentingVehicle;
+	public void deleteRentingVehicle() {
+		rentingVehicle = new Vehicle();
+		updateStatus(rentingVehicle);
 	}
 }

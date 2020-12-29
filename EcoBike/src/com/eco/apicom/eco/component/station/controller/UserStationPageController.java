@@ -62,8 +62,8 @@ public class UserStationPageController {
 		List<Vehicle> list = ecoUserController.searchVehicle(params);
 		return list;
 	}
-	public void updateReturnVehicle() {
-		ecoUserController.updateReturnVehicle();
+	public void deleteRentingVehicle() {
+		ecoUserController.deleteRentingVehicle();
 	}
 	public boolean checkVehicle() {
 		

@@ -19,8 +19,8 @@ import com.eco.component.rentbike.controller.RentingController;
 @SuppressWarnings("serial")
 public class RentingDialog extends JDialog {
     private RentingController controller;
-    private JPanel pane;
 	private JLabel statusLabel;
+	private JPanel panel = new JPanel();
 	private JLabel nameLabel = new JLabel();
 	private JLabel typeLabel = new JLabel();
 	private JLabel weightLabel = new JLabel();
@@ -28,7 +28,8 @@ public class RentingDialog extends JDialog {
 	private JLabel lienceLabel = new JLabel();
 	private JLabel manuafLabel = new JLabel();
 	private JLabel producerLabel = new JLabel();
-    public RentingDialog() {
+    public RentingDialog(RentingController controller) {
+    	this.controller = controller;
     	this.setTitle("Xe đang thuê");
     	this.setMinimumSize(new Dimension(400,150));
     	statusLabel = new JLabel();
@@ -37,16 +38,16 @@ public class RentingDialog extends JDialog {
 		this.pack();
 		this.setResizable(false);
      }
-	public void setController(RentingController controller) {
-		this.controller = controller;
-	}
+
 	public void updateStatus(Vehicle vehicle) {
-		JPanel panel = new JPanel();
+		this.add(panel);
+		panel.repaint();
+		panel.revalidate();
+		panel.removeAll();
 		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 		statusLabel.setText("Empty!!!!!!");
 		panel.add(statusLabel);
-		this.add(panel);
-		if(vehicle == null) return;
+		if(vehicle.getBarcode() == null) return;
 		panel.setVisible(true);
 		statusLabel.setText("");
 		nameLabel.setText("Name : "+vehicle.getName());
